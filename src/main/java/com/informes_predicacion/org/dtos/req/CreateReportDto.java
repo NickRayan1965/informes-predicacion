@@ -1,5 +1,6 @@
 package com.informes_predicacion.org.dtos.req;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -14,5 +15,5 @@ public class CreateReportDto {
   private Long scheduleId;
   private Long preachingDriverId;
   private String observations;
-  private List<CreateReportTerritoryItemDto> items;
+  private List<CreateReportTerritoryItemDto> items = new ArrayList<>();
 }

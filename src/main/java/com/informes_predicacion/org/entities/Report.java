@@ -39,10 +39,10 @@ public class Report {
   @JoinColumn(name = "preaching_driver_id", nullable = false)
   private User preachingDriver;
 
-  @Column(nullable = false, length = 250)
+  @Column(nullable = true, length = 250)
   private String observations;
 
-  @OneToMany(targetEntity = ReportTerritoryItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @OneToMany(targetEntity = ReportTerritoryItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "report")
   private Set<ReportTerritoryItem> items;
 
   public void addTerritoryItem(ReportTerritoryItem item) {

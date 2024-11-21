@@ -1,5 +1,6 @@
 package com.informes_predicacion.org.dtos.req;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -13,5 +14,5 @@ public class CreateReportTerritoryItemDto {
   private Long territoryId;
   private String observations;
   private Boolean completed;
-  private List<CreateReportTerritoryBlockItemDto> blocks;
+  private List<CreateReportTerritoryBlockItemDto> blocks = new ArrayList<>();
 }

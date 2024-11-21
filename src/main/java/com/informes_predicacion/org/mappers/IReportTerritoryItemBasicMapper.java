@@ -27,7 +27,7 @@ public interface IReportTerritoryItemBasicMapper {
   default ReportTerritoryItem toEntity(CreateReportTerritoryItemDto dto, Report report) {
     ReportTerritoryItem entity = new ReportTerritoryItem();
     mergeToEntity(dto, entity);
-      entity.setReport(report);
+    entity.setReport(report);
     return entity;
   }
   default ReportTerritoryItem toEntity(CreateReportTerritoryItemDto dto) {

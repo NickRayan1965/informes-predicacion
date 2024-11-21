@@ -1,5 +1,7 @@
 package com.informes_predicacion.org.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,6 +34,7 @@ public class ReportTerritoryBlockItem {
 
   //@Column(nullable = false, name = "report_territory_item_id")
   
+  @JsonIgnore
   @ManyToOne(optional = false, targetEntity = ReportTerritoryItem.class, fetch = FetchType.LAZY)
   @JoinColumn(name = "report_territory_item_id", nullable = false)
   private ReportTerritoryItem reportTerritoryItem;

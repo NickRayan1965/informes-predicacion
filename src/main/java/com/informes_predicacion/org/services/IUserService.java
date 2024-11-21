@@ -9,6 +9,7 @@ public interface IUserService {
   UserDto createUser(CreateUserDto createUserDto, Long congregationId);
   List<UserDto> getAllUsers(Long congregationId);
   UserDto getUserById(Long id);
+  UserDto findByIdAndCongregationId(Long id, Long congregationId);
   UserDto updateUser(Long id, CreateUserDto createUserDto);
   void deleteUser(Long id);
 }

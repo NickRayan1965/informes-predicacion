@@ -15,6 +15,10 @@ public interface IScheduleMapper {
   @Mapping(target = "congregation", ignore = true)
   void mergeToEntity(CreateScheduleDto dto, @MappingTarget Schedule entity);
 
+  @Mapping(target = "congregation.id", source = "congregationId")
+  @Mapping(target = "congregation.name", source = "congregationName")
+  void mergeToEntity(ScheduleDto dto, @MappingTarget Schedule entity);
+
   @Mapping(target = "congregationId", source = "congregation.id")
   @Mapping(target = "congregationName", source = "congregation.name")
   void mergeToDto(Schedule entity, @MappingTarget ScheduleDto dto);
@@ -25,6 +29,11 @@ public interface IScheduleMapper {
     return dto;
   }
   default Schedule toEntity(CreateScheduleDto dto) {
+    Schedule entity = new Schedule();
+    mergeToEntity(dto, entity);
+    return entity;
+  }
+  default Schedule toEntity(ScheduleDto dto) {
     Schedule entity = new Schedule();
     mergeToEntity(dto, entity);
     return entity;

@@ -60,5 +60,14 @@ public class UserService implements IUserService {
     user.setEnabled(false);
     userRepository.save(user);
   }
+
+  @Override
+  public UserDto findByIdAndCongregationId(Long id, Long congregationId) {
+    Optional<User> user = userRepository.findByIdAndCongregationId(id, congregationId);
+    if (!user.isPresent()) {
+      throw new RuntimeException("User with id " + id + " not found");
+    }
+    return userMapper.entityToDto(user.get());
+  }
   
 }

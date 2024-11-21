@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.informes_predicacion.org.dtos.res.TerritoryDto;
 import com.informes_predicacion.org.entities.Territory;
@@ -16,4 +17,10 @@ public interface ITerritoryRepository extends JpaRepository<Territory, Long> {
 
   @Query("SELECT t FROM Territory t LEFT JOIN t.congregation c WHERE t.id = ?1 AND c.id = ?2")
   Optional<Territory> findByIdAndCongregationId(Long id, Long congregationId);
+
+  @Query("SELECT COUNT(t.id) = :#{#ids.size} " +
+       "FROM Territory t " +
+       "WHERE t.id IN :ids AND t.congregation.id = :congregationId")
+  Boolean existsAllTerritoriesByIdAndCongregationId(@Param("ids") Set<Long> ids, @Param("congregationId") Long congregationId);
+
 }

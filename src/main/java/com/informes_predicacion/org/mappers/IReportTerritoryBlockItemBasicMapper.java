@@ -5,6 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import com.informes_predicacion.org.dtos.req.CreateReportTerritoryBlockItemDto;
+import com.informes_predicacion.org.dtos.res.ReportTerritoryBlockItemDto;
 import com.informes_predicacion.org.entities.ReportTerritoryBlockItem;
 import com.informes_predicacion.org.entities.ReportTerritoryItem;
 
@@ -16,6 +17,12 @@ public interface IReportTerritoryBlockItemBasicMapper {
   @Mapping(target = "reportTerritoryItem", ignore = true)
   void mergeToEntity(CreateReportTerritoryBlockItemDto dto, @MappingTarget ReportTerritoryBlockItem entity);
 
+
+  @Mapping(target = "blockId", source = "block.id")
+  @Mapping(target = "blockName", source = "block.name")
+  @Mapping(target = "reportTerritoryItemId", source = "reportTerritoryItem.id")
+  void mergeToDto(ReportTerritoryBlockItem entity, @MappingTarget ReportTerritoryBlockItemDto dto);
+
   default ReportTerritoryBlockItem toEntity(CreateReportTerritoryBlockItemDto dto) {
     ReportTerritoryBlockItem entity = new ReportTerritoryBlockItem();
     mergeToEntity(dto, entity);
@@ -26,5 +33,11 @@ public interface IReportTerritoryBlockItemBasicMapper {
     mergeToEntity(dto, entity);
     entity.setReportTerritoryItem(reportTerritoryItem);
     return entity;
+  }
+
+  default ReportTerritoryBlockItemDto toDto(ReportTerritoryBlockItem entity) {
+    ReportTerritoryBlockItemDto dto = new ReportTerritoryBlockItemDto();
+    mergeToDto(entity, dto);
+    return dto;
   }
 }

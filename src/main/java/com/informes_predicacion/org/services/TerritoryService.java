@@ -58,5 +58,10 @@ public class TerritoryService implements ITerritoryService {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'deleteTerritory'");
   }
+
+  @Override
+  public Boolean existsAllTerritoriesByIdAndCongregationId(Set<Long> ids, Long congregationId) {
+    return territoryRepository.existsAllTerritoriesByIdAndCongregationId(ids, congregationId);
+  }
   
 }

@@ -2,6 +2,9 @@ package com.informes_predicacion.org.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -35,6 +38,7 @@ public class ReportTerritoryItem {
 
   // @Column(nullable = false, name = "report_id")
 
+  @JsonIgnore
   @ManyToOne(optional = false, targetEntity = Report.class, fetch = FetchType.LAZY)
   @JoinColumn(name = "report_id", nullable = false)
   private Report report;
@@ -42,9 +46,18 @@ public class ReportTerritoryItem {
   @Column(nullable = false, length = 250)
   private String observations;
 
-  @OneToMany(targetEntity = ReportTerritoryBlockItem.class, fetch = FetchType.EAGER)
+  @OneToMany(targetEntity = ReportTerritoryBlockItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "reportTerritoryItem")
   private Set<ReportTerritoryBlockItem> blocks;
 
   @Column(nullable = false)
   private Boolean completed;
+
+  public void addBlock(ReportTerritoryBlockItem block) {
+    this.blocks.add(block);
+    block.setReportTerritoryItem(this);
+  }
+  public void removeBlock(ReportTerritoryBlockItem block) {
+    this.blocks.remove(block);
+    block.setReportTerritoryItem(null);
+  }
 }

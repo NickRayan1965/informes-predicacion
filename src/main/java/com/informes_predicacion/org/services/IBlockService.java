@@ -11,4 +11,5 @@ public interface IBlockService {
   BlockDto createBlock(CreateBlockDto createBlockDto, Long congregationId);
   BlockDto updateBlock(Long id, CreateBlockDto createBlockDto, Long congregationId);
   void deleteBlock(Long id, Long congregationId);
+  Boolean existsAllBlocksByIdAndCongregationId(Set<Long> ids, Long congregationId);
 }

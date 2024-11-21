@@ -15,7 +15,13 @@ public interface IUserMapper {
   @Mapping(target = "enabled", constant = "true")
   @Mapping(target = "congregation", ignore = true)
   void mergeToEntity(CreateUserDto dto, @MappingTarget User entity);
-  
+
+
+  @Mapping(target = "congregation.id", source = "congregationId")
+  @Mapping(target = "congregation.name", source = "congregationName")
+  @Mapping(target = "password", ignore = true)
+  void mergeToEntity(UserDto dto, @MappingTarget User entity);
+
   default User dtoToEntity(CreateUserDto dto) {
     User entity = User.builder().build();
     mergeToEntity(dto, entity);
@@ -31,5 +37,10 @@ public interface IUserMapper {
     UserDto dto = new UserDto();
     mergeToDto(entity, dto);
     return dto;
+  }
+  default User toEntity(UserDto dto) {
+    User entity = User.builder().build();
+    mergeToEntity(dto, entity);
+    return entity;
   }
 }

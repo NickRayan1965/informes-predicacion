@@ -61,5 +61,10 @@ public class BlockService implements IBlockService {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'deleteBlock'");
   }
+
+  @Override
+  public Boolean existsAllBlocksByIdAndCongregationId(Set<Long> ids, Long congregationId) {
+    return blockRepository.existsAllBlocksByIdAndCongregationId(ids, congregationId);
+  }
   
 }

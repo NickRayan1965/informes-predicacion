@@ -35,9 +35,11 @@ public class ReportMapper {
     ReportDto dto = reportBasicMapper.toDto(entity);
     dto.setItems(entity.getItems().stream().map(item -> {
       ReportTerritoryItemDto itemDto = reportTerritoryItemBasicMapper.toDto(item, entity);
-      
+      itemDto.setBlocks(
+        item.getBlocks().stream().map(block -> reportTerritoryBlockItemBasicMapper.toDto(block)).collect(Collectors.toList())
+      );
       return itemDto;
     }).collect(Collectors.toList()));
-    
+    return dto;
   }
 }
