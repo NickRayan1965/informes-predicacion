@@ -1,0 +1,228 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Preaching Report",
+    "collectionId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+    "dateExported": "2024-11-21T22:25:18.860Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "19bee1a7-49fb-430e-a9ae-2fa1425a3148",
+            "name": "congregaciones",
+            "containerId": "",
+            "created": "2024-11-20T20:05:29.176Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "d27a2905-a762-4871-8f17-bd58f2ca260f",
+            "name": "users",
+            "containerId": "",
+            "created": "2024-11-20T20:17:46.194Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "76631467-cb24-47b4-b5cb-35a55d8bb2cb",
+            "name": "territorios",
+            "containerId": "",
+            "created": "2024-11-20T21:57:38.872Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "2ffa04d1-22dc-4fd9-b48e-8901ca866186",
+            "name": "bloques",
+            "containerId": "",
+            "created": "2024-11-20T22:18:54.285Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "1ed2461a-ef49-4bf8-9c5e-0ad6db4f2ced",
+            "name": "reportes",
+            "containerId": "",
+            "created": "2024-11-21T20:02:18.275Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "4d0d7174-6379-4ff2-aa27-178876e376d9",
+            "name": "horarios",
+            "containerId": "",
+            "created": "2024-11-21T20:12:52.560Z",
+            "sortNum": 70000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "c6688e31-06b0-4e4f-99fe-00686ad904d3",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "19bee1a7-49fb-430e-a9ae-2fa1425a3148",
+            "name": "listar congregaciones",
+            "url": "http://localhost:4000/congregations",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-11-20T20:05:36.735Z",
+            "modified": "2024-11-20T20:05:39.234Z",
+            "headers": []
+        },
+        {
+            "_id": "76f9d4cd-2cca-46cf-aebb-c434f78a49c1",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "19bee1a7-49fb-430e-a9ae-2fa1425a3148",
+            "name": "crear congregacion",
+            "url": "http://localhost:4000/congregations",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-11-20T20:05:47.949Z",
+            "modified": "2024-11-21T19:58:32.605Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Emisor\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cbebff07-9076-42d6-a069-d2fd3c2cf472",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "d27a2905-a762-4871-8f17-bd58f2ca260f",
+            "name": "listar usuarios",
+            "url": "http://localhost:4000/users",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-11-20T20:17:53.450Z",
+            "modified": "2024-11-20T20:18:02.510Z",
+            "headers": []
+        },
+        {
+            "_id": "2a7bb7f4-a325-46e7-bfb1-4db09849a32a",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "d27a2905-a762-4871-8f17-bd58f2ca260f",
+            "name": "crear usuario",
+            "url": "http://localhost:4000/users",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-11-20T20:18:35.131Z",
+            "modified": "2024-11-20T20:23:29.253Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \n  \"names\": \"Nick\",\n  \"lastNames\": \"Cerron\",\n   \"username\": \"nick\",\n   \"password\": \"1234\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "ac8851c1-dc55-4cad-9c5c-44ff94810b56",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "76631467-cb24-47b4-b5cb-35a55d8bb2cb",
+            "name": "listar territorios",
+            "url": "http://localhost:4000/territories",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-11-20T21:57:47.222Z",
+            "modified": "2024-11-20T21:57:58.741Z",
+            "headers": []
+        },
+        {
+            "_id": "449511c0-00d2-4562-89e8-953d2b62006f",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "76631467-cb24-47b4-b5cb-35a55d8bb2cb",
+            "name": "crear territorio",
+            "url": "http://localhost:4000/territories",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-11-20T21:58:11.173Z",
+            "modified": "2024-11-20T21:58:58.781Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"20\",\n  \"description\": null\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3d399023-1ed6-4254-94a6-29a47dac170b",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "2ffa04d1-22dc-4fd9-b48e-8901ca866186",
+            "name": "listar bloques",
+            "url": "http://localhost:4000/blocks",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-11-20T22:19:05.978Z",
+            "modified": "2024-11-20T22:19:24.159Z",
+            "headers": []
+        },
+        {
+            "_id": "c308b5e3-5fc7-4ff5-8ed2-75dde36c9512",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "2ffa04d1-22dc-4fd9-b48e-8901ca866186",
+            "name": "crear bloque",
+            "url": "http://localhost:4000/blocks",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-11-20T22:19:46.968Z",
+            "modified": "2024-11-20T22:22:35.539Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"G\",\n  \"descripcion\": null,\n  \"territoryId\": 1\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "85025375-d9fb-4e94-ac55-a4f7f8db346c",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "1ed2461a-ef49-4bf8-9c5e-0ad6db4f2ced",
+            "name": "listar reportes",
+            "url": "http://localhost:4000/reports",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-11-21T20:02:25.777Z",
+            "modified": "2024-11-21T20:04:39.005Z",
+            "headers": []
+        },
+        {
+            "_id": "8b6bb990-c47e-4154-a6bf-2a8386ccdcea",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "1ed2461a-ef49-4bf8-9c5e-0ad6db4f2ced",
+            "name": "crear reporte",
+            "url": "http://localhost:4000/reports",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2024-11-21T20:11:50.166Z",
+            "modified": "2024-11-21T22:01:44.074Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"date\": \"10-10-2024\",\n  \"scheduleId\": 1,\n  \"preachingDriverId\": 1,\n  \"observations\": null,\n  \"items\": [\n    {\n      \"territoryId\": 1,\n      \"observations\": null,\n      \"completed\": true,\n      \"blocks\": []\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "24c306d0-6807-4aea-85e8-fb784d815bae",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "4d0d7174-6379-4ff2-aa27-178876e376d9",
+            "name": "listar horarios",
+            "url": "http://localhost:4000/schedules",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2024-11-21T20:13:05.880Z",
+            "modified": "2024-11-21T20:13:12.154Z",
+            "headers": []
+        },
+        {
+            "_id": "35b31e7c-65c5-4603-b556-05c72914c843",
+            "colId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
+            "containerId": "4d0d7174-6379-4ff2-aa27-178876e376d9",
+            "name": "crear horario",
+            "url": "http://localhost:4000/schedules",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2024-11-21T20:13:27.201Z",
+            "modified": "2024-11-21T20:13:59.684Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"mañana\",\n  \"time\": \"6am-8pm\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "i1KVhOUQjpt8h6L_J2xN-KYW0hU8zqwH2aQQn6OEI--LM27nHELqd9V7ip3nHWGEozfomi6iAuIu48_KxLaWig"
+}
