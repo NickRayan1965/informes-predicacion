@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.informes_predicacion.org.dtos.req.CreateReportDto;
 import com.informes_predicacion.org.dtos.res.ReportDto;
+import com.informes_predicacion.org.dtos.res.ReportTerritoryItemDto;
 import com.informes_predicacion.org.entities.Report;
 import com.informes_predicacion.org.entities.ReportTerritoryBlockItem;
 import com.informes_predicacion.org.entities.ReportTerritoryItem;
@@ -32,6 +33,11 @@ public class ReportMapper {
   }
   public ReportDto toDto(Report entity) {
     ReportDto dto = reportBasicMapper.toDto(entity);
+    dto.setItems(entity.getItems().stream().map(item -> {
+      ReportTerritoryItemDto itemDto = reportTerritoryItemBasicMapper.toDto(item, entity);
+      
+      return itemDto;
+    }).collect(Collectors.toList()));
     
   }
 }
