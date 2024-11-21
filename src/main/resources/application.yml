@@ -1,0 +1,16 @@
+#spring.application.name=informe-predicacion
+server:
+  port: 4000
+spring:
+  application:
+    name: informe-predicacion
+  datasource:
+    url: jdbc:postgresql://localhost:5432/informe-predicacion
+    username: nick
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none   
+  
