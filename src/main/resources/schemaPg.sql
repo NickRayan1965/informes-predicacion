@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS blocks (
     UNIQUE (territory_id, name),
     FOREIGN KEY (territory_id) REFERENCES territories(id)
 );
-CREATE TABLE IF NOT EXISTS schedules {
+CREATE TABLE IF NOT EXISTS schedules (
     id BIGSERIAL PRIMARY KEY,
     congregation_id BIGINT NOT NULL,
     name VARCHAR(50) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS schedules {
     UNIQUE (congregation_id, name),
     UNIQUE (congregation_id, time),
     FOREIGN KEY (congregation_id) REFERENCES congregations(id)
-}
+);
 CREATE TABLE IF NOT EXISTS users (
     id BIGSERIAL PRIMARY KEY,
     names VARCHAR(200) NOT NULL,

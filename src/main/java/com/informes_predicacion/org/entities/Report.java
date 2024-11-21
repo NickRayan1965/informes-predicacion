@@ -2,6 +2,7 @@ package com.informes_predicacion.org.entities;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -41,6 +42,16 @@ public class Report {
   @Column(nullable = false, length = 250)
   private String observations;
 
-  @OneToMany(targetEntity = ReportTerritoryItem.class, fetch = FetchType.EAGER)
+  @OneToMany(targetEntity = ReportTerritoryItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   private Set<ReportTerritoryItem> items;
+
+  public void addTerritoryItem(ReportTerritoryItem item) {
+    this.items.add(item);
+    item.setReport(this);
+  }
+  public void removeTerritoryItem(ReportTerritoryItem item) {
+    this.items.remove(item);
+    item.setReport(null);
+  }
+
 }
