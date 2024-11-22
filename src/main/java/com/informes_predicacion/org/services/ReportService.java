@@ -11,6 +11,7 @@ import com.informes_predicacion.org.dtos.res.ReportDto;
 import com.informes_predicacion.org.dtos.res.ScheduleDto;
 import com.informes_predicacion.org.dtos.res.UserDto;
 import com.informes_predicacion.org.entities.Report;
+import com.informes_predicacion.org.entities.Territory;
 import com.informes_predicacion.org.mappers.IScheduleMapper;
 import com.informes_predicacion.org.mappers.IUserMapper;
 import com.informes_predicacion.org.mappers.ReportMapper;
@@ -71,10 +72,12 @@ public class ReportService implements IReportService {
     if (existItems) {
       Set<Long> territoryIds = dto.getItems().stream().map(item -> item.getTerritory().getId()).collect(Collectors.toSet());
       System.out.println(territoryIds);      
-      if (!territoryService.existsAllTerritoriesByIdAndCongregationId(territoryIds, congregationId)) {
-        throw new RuntimeException("Territory not found");
-      }
+      Set<Territory> territories = territoryService.findByManyIdsAndCongregationId(territoryIds, congregationId);
+
       dto.getItems().forEach(item -> {
+        Territory territory = territories.stream().filter(t -> t.getId().equals(item.getTerritory().getId())).findFirst().get();
+        item.setTerritory(territory);
+
         Boolean existBlocks = item.getBlocks() != null && !item.getBlocks().isEmpty();
         if (existBlocks) {
           Set<Long> blockIds = item.getBlocks().stream().map(block -> block.getId()).collect(Collectors.toSet());

@@ -23,12 +23,18 @@ public class ReportMapper {
 
   public Report toEntity(CreateReportDto dto) {
     Report entity = reportBasicMapper.toEntity(dto);
-    entity.setItems(dto.getItems().stream().map(item -> {
-      ReportTerritoryItem entityItem = reportTerritoryItemBasicMapper.toEntity(item, entity);
-      Set<ReportTerritoryBlockItem> blocks = item.getBlocks().stream().map(block -> reportTerritoryBlockItemBasicMapper.toEntity(block, entityItem)).collect(Collectors.toSet());
-      entityItem.setBlocks(blocks);
-      return entityItem;
-    }).collect(Collectors.toSet()));
+    // entity.setItems(dto.getItems().stream().map(item -> {
+    //   ReportTerritoryItem entityItem = reportTerritoryItemBasicMapper.toEntity(item);
+    //   Set<ReportTerritoryBlockItem> blocks = item.getBlocks().stream().map(block -> reportTerritoryBlockItemBasicMapper.toEntity(block)).collect(Collectors.toSet());
+    //   entityItem.setBlocks(blocks);
+    //   return entityItem;
+    // }).collect(Collectors.toSet()));
+    if (dto.getItems() != null) {
+      dto.getItems().forEach(item -> {
+        ReportTerritoryItem entityItem = reportTerritoryItemBasicMapper.toEntity(item);
+        entity.addTerritoryItem(entityItem);
+      });
+    }
     return entity;
   }
   public ReportDto toDto(Report entity) {

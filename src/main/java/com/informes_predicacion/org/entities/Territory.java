@@ -34,7 +34,7 @@ public class Territory {
   @Column(nullable = true, length = 250)
   private String description;
 
-  @ManyToOne(optional = false, targetEntity = Congregation.class, fetch = FetchType.LAZY)
+  @ManyToOne(targetEntity = Congregation.class, fetch = FetchType.LAZY)
   @JoinColumn(name = "congregation_id", nullable = false)
   private Congregation congregation;
 

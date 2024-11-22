@@ -1,5 +1,7 @@
 package com.informes_predicacion.org.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -43,7 +45,7 @@ public class Report {
   private String observations;
 
   @OneToMany(targetEntity = ReportTerritoryItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "report")
-  private Set<ReportTerritoryItem> items;
+  private List<ReportTerritoryItem> items = new ArrayList<>();
 
   public void addTerritoryItem(ReportTerritoryItem item) {
     this.items.add(item);

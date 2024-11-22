@@ -43,11 +43,11 @@ public class ReportTerritoryItem {
   @JoinColumn(name = "report_id", nullable = false)
   private Report report;
 
-  @Column(nullable = false, length = 250)
+  @Column(nullable = true, length = 250)
   private String observations;
 
   @OneToMany(targetEntity = ReportTerritoryBlockItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "reportTerritoryItem")
-  private Set<ReportTerritoryBlockItem> blocks;
+  private Set<ReportTerritoryBlockItem> blocks = Set.of();
 
   @Column(nullable = false)
   private Boolean completed;

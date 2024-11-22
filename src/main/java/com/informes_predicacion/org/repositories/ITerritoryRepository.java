@@ -23,4 +23,8 @@ public interface ITerritoryRepository extends JpaRepository<Territory, Long> {
        "WHERE t.id IN :ids AND t.congregation.id = :congregationId")
   Boolean existsAllTerritoriesByIdAndCongregationId(@Param("ids") Set<Long> ids, @Param("congregationId") Long congregationId);
 
+
+  @Query("SELECT t FROM Territory t WHERE t.id IN :ids AND t.congregation.id = :congregationId")
+  Set<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId);
+
 }

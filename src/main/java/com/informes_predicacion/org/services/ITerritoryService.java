@@ -13,4 +13,5 @@ public interface ITerritoryService {
   TerritoryDto updateTerritory(Long id, Territory territory);
   void deleteTerritory(Long id, Long congregationId);
   Boolean existsAllTerritoriesByIdAndCongregationId(Set<Long> ids, Long congregationId);
+  Set<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId);
 }

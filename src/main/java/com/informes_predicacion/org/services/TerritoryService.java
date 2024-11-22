@@ -63,5 +63,14 @@ public class TerritoryService implements ITerritoryService {
   public Boolean existsAllTerritoriesByIdAndCongregationId(Set<Long> ids, Long congregationId) {
     return territoryRepository.existsAllTerritoriesByIdAndCongregationId(ids, congregationId);
   }
+
+  @Override
+  public Set<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId) {
+    Set<Territory> territories = territoryRepository.findByManyIdsAndCongregationId(ids, congregationId);
+    if (territories.size() != ids.size()) {
+      throw new RuntimeException("Territories not found");
+    }
+    return territories;
+  }
   
 }
