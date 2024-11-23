@@ -1,5 +1,6 @@
 package com.informes_predicacion.org.repositories;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,5 +20,10 @@ public interface IBlockRepository extends JpaRepository<Block, Long> {
        "FROM Block b " +
        "WHERE b.id IN :ids AND b.territory.congregation.id = :congregationId")
     Boolean existsAllBlocksByIdAndCongregationId(@Param("ids") Set<Long> ids, @Param("congregationId") Long congregationId);
+
+    
+    
+    @Query("SELECT b FROM Block b WHERE b.id IN :ids AND b.territory.id = :territoryId")
+    List<Block> findManyByIdsAndTerritoryId(List<Long> ids, Long territoryId);
 
 }

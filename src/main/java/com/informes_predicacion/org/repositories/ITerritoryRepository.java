@@ -1,5 +1,6 @@
 package com.informes_predicacion.org.repositories;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -25,6 +26,6 @@ public interface ITerritoryRepository extends JpaRepository<Territory, Long> {
 
 
   @Query("SELECT t FROM Territory t WHERE t.id IN :ids AND t.congregation.id = :congregationId")
-  Set<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId);
+  List<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId);
 
 }

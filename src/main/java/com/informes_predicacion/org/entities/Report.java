@@ -2,8 +2,6 @@ package com.informes_predicacion.org.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,6 +1,7 @@
 package com.informes_predicacion.org.entities;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -47,7 +48,7 @@ public class ReportTerritoryItem {
   private String observations;
 
   @OneToMany(targetEntity = ReportTerritoryBlockItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "reportTerritoryItem")
-  private Set<ReportTerritoryBlockItem> blocks = Set.of();
+  private List<ReportTerritoryBlockItem> blocks = new ArrayList<>();
 
   @Column(nullable = false)
   private Boolean completed;

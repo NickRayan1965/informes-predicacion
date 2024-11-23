@@ -1,5 +1,6 @@
 package com.informes_predicacion.org.services;
 
+import java.util.List;
 import java.util.Set;
 
 import com.informes_predicacion.org.dtos.req.CreateTerritoryDto;
@@ -13,5 +14,5 @@ public interface ITerritoryService {
   TerritoryDto updateTerritory(Long id, Territory territory);
   void deleteTerritory(Long id, Long congregationId);
   Boolean existsAllTerritoriesByIdAndCongregationId(Set<Long> ids, Long congregationId);
-  Set<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId);
+  List<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId);
 }

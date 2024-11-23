@@ -1,6 +1,5 @@
 package com.informes_predicacion.org.mappers;
 
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -23,16 +22,16 @@ public class ReportMapper {
 
   public Report toEntity(CreateReportDto dto) {
     Report entity = reportBasicMapper.toEntity(dto);
-    // entity.setItems(dto.getItems().stream().map(item -> {
-    //   ReportTerritoryItem entityItem = reportTerritoryItemBasicMapper.toEntity(item);
-    //   Set<ReportTerritoryBlockItem> blocks = item.getBlocks().stream().map(block -> reportTerritoryBlockItemBasicMapper.toEntity(block)).collect(Collectors.toSet());
-    //   entityItem.setBlocks(blocks);
-    //   return entityItem;
-    // }).collect(Collectors.toSet()));
     if (dto.getItems() != null) {
       dto.getItems().forEach(item -> {
         ReportTerritoryItem entityItem = reportTerritoryItemBasicMapper.toEntity(item);
         entity.addTerritoryItem(entityItem);
+        if (item.getBlocks() != null) {
+          item.getBlocks().forEach(block -> {
+            ReportTerritoryBlockItem entityBlock = reportTerritoryBlockItemBasicMapper.toEntity(block);
+            entityItem.addBlock(entityBlock);
+          });
+        }
       });
     }
     return entity;
@@ -42,7 +41,7 @@ public class ReportMapper {
     dto.setItems(entity.getItems().stream().map(item -> {
       ReportTerritoryItemDto itemDto = reportTerritoryItemBasicMapper.toDto(item, entity);
       itemDto.setBlocks(
-        item.getBlocks().stream().map(block -> reportTerritoryBlockItemBasicMapper.toDto(block)).collect(Collectors.toList())
+        item.getBlocks().stream().map(block -> reportTerritoryBlockItemBasicMapper.toDto(block, item)).collect(Collectors.toList())
       );
       return itemDto;
     }).collect(Collectors.toList()));

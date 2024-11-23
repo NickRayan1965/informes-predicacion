@@ -31,8 +31,6 @@ public class ReportTerritoryBlockItem {
   @ManyToOne(optional = false, targetEntity = Block.class, fetch = FetchType.EAGER)
   @JoinColumn(name = "block_id", nullable = false)
   private Block block;
-
-  //@Column(nullable = false, name = "report_territory_item_id")
   
   @JsonIgnore
   @ManyToOne(optional = false, targetEntity = ReportTerritoryItem.class, fetch = FetchType.LAZY)

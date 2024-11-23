@@ -1,5 +1,6 @@
 package com.informes_predicacion.org.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ import com.informes_predicacion.org.dtos.req.CreateReportDto;
 import com.informes_predicacion.org.dtos.res.ReportDto;
 import com.informes_predicacion.org.dtos.res.ScheduleDto;
 import com.informes_predicacion.org.dtos.res.UserDto;
+import com.informes_predicacion.org.entities.Block;
 import com.informes_predicacion.org.entities.Report;
 import com.informes_predicacion.org.entities.Territory;
 import com.informes_predicacion.org.mappers.IScheduleMapper;
@@ -27,6 +29,7 @@ public class ReportService implements IReportService {
   private final IScheduleService scheduleService;
   private final IUserService userService;
   private final ITerritoryService territoryService;
+  private final IBlockService blockService;
   private final IScheduleMapper scheduleMapper;
   private final IUserMapper userMapper; 
   @Override
@@ -49,8 +52,7 @@ public class ReportService implements IReportService {
     report = getAndVerifyRelations(report, congregationId);
     try {
       report = reportRepository.save(report);
-      return report;
-      //return reportMapper.toDto(report);
+      return reportMapper.toDto(report);
     } catch (Exception e) {
       throw new RuntimeException(e.getMessage());
     }
@@ -63,32 +65,37 @@ public class ReportService implements IReportService {
   }
 
   @Override
-  public Report getAndVerifyRelations(Report dto, Long congregationId) {
-    ScheduleDto schedule = scheduleService.findByIdAndCongregationId(dto.getSchedule().getId(), congregationId);
-    dto.setSchedule(scheduleMapper.toEntity(schedule));
-    UserDto userDto = userService.findByIdAndCongregationId(dto.getPreachingDriver().getId(), congregationId);
-    dto.setPreachingDriver(userMapper.toEntity(userDto));
-    Boolean existItems = dto.getItems() != null && !dto.getItems().isEmpty();
-    if (existItems) {
-      Set<Long> territoryIds = dto.getItems().stream().map(item -> item.getTerritory().getId()).collect(Collectors.toSet());
-      System.out.println(territoryIds);      
-      Set<Territory> territories = territoryService.findByManyIdsAndCongregationId(territoryIds, congregationId);
+  public Report getAndVerifyRelations(Report entity, Long congregationId) {
+    
+    ScheduleDto schedule = scheduleService.findByIdAndCongregationId(entity.getSchedule().getId(), congregationId);
+    entity.setSchedule(scheduleMapper.toEntity(schedule));
+    UserDto userDto = userService.findByIdAndCongregationId(entity.getPreachingDriver().getId(), congregationId);
+    entity.setPreachingDriver(userMapper.toEntity(userDto));
 
-      dto.getItems().forEach(item -> {
+    Boolean existItems = entity.getItems() != null && !entity.getItems().isEmpty();
+    
+    if (existItems) {
+      Set<Long> territoryIds = entity.getItems().stream().map(item -> item.getTerritory().getId()).collect(Collectors.toSet());
+      List<Territory> territories = territoryService.findByManyIdsAndCongregationId(territoryIds, congregationId);
+
+      entity.getItems().forEach(item -> {
         Territory territory = territories.stream().filter(t -> t.getId().equals(item.getTerritory().getId())).findFirst().get();
         item.setTerritory(territory);
 
         Boolean existBlocks = item.getBlocks() != null && !item.getBlocks().isEmpty();
+        System.out.println("existBlocks: " + existBlocks);
         if (existBlocks) {
-          Set<Long> blockIds = item.getBlocks().stream().map(block -> block.getId()).collect(Collectors.toSet());
-          if (!territoryService.existsAllTerritoriesByIdAndCongregationId(blockIds, congregationId)) {
-            throw new RuntimeException("Block not found");
-          }
+          List<Long> blockIds = item.getBlocks().stream().map(reportTerritoryBlockItem -> reportTerritoryBlockItem.getBlock().getId()).collect(Collectors.toList());
+          List<Block> blocks = blockService.findManyByIdsAndTerritoryId(blockIds, territory.getId());
+          item.getBlocks().forEach(reportTerritoryBlockItem -> {
+            Block block = blocks.stream().filter(b -> b.getId().equals(reportTerritoryBlockItem.getBlock().getId())).findFirst().get();
+            reportTerritoryBlockItem.setBlock(block);
+          });
         }
       });
 
     }
-    return dto;
+    return entity;
   }
   
 }

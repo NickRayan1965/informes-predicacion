@@ -40,4 +40,10 @@ public interface IReportTerritoryBlockItemBasicMapper {
     mergeToDto(entity, dto);
     return dto;
   }
+  default ReportTerritoryBlockItemDto toDto(ReportTerritoryBlockItem entity, ReportTerritoryItem reportTerritoryItem) {
+    ReportTerritoryBlockItemDto dto = new ReportTerritoryBlockItemDto();
+    mergeToDto(entity, dto);
+    dto.setReportTerritoryItemId(reportTerritoryItem.getId());
+    return dto;
+  }
 }

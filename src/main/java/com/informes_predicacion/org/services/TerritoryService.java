@@ -1,5 +1,6 @@
 package com.informes_predicacion.org.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -65,8 +66,8 @@ public class TerritoryService implements ITerritoryService {
   }
 
   @Override
-  public Set<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId) {
-    Set<Territory> territories = territoryRepository.findByManyIdsAndCongregationId(ids, congregationId);
+  public List<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId) {
+    List<Territory> territories = territoryRepository.findByManyIdsAndCongregationId(ids, congregationId);
     if (territories.size() != ids.size()) {
       throw new RuntimeException("Territories not found");
     }

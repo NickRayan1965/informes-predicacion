@@ -1,5 +1,6 @@
 package com.informes_predicacion.org.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -65,6 +66,18 @@ public class BlockService implements IBlockService {
   @Override
   public Boolean existsAllBlocksByIdAndCongregationId(Set<Long> ids, Long congregationId) {
     return blockRepository.existsAllBlocksByIdAndCongregationId(ids, congregationId);
+  }
+
+  @Override
+  public List<Block> findManyByIdsAndTerritoryId(List<Long> ids, Long territoryId) {
+    List<Block> blocks = blockRepository.findManyByIdsAndTerritoryId(ids, territoryId);
+    System.out.println("blocks: " + blocks);
+    System.out.println("ids: " + ids);
+    System.out.println("territoryId: " + territoryId);
+    if (blocks.size() != ids.size()) {
+      throw new RuntimeException("Some blocks not found in territory " + territoryId);
+    }
+    return blocks;
   }
   
 }
