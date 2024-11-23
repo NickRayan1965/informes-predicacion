@@ -4,9 +4,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.informes_predicacion.org.dtos.req.CreateTerritoryDto;
+import com.informes_predicacion.org.dtos.req.GetTerritoriesQueryParamsDto;
+import com.informes_predicacion.org.dtos.res.ListResponseDto;
 import com.informes_predicacion.org.dtos.res.TerritoryDto;
 import com.informes_predicacion.org.entities.Congregation;
 import com.informes_predicacion.org.entities.Territory;
@@ -22,8 +26,15 @@ public class TerritoryService implements ITerritoryService {
   private final ICongregationService congregationService;
   private final ITerritoryMapper territoryMapper;
   @Override
-  public Set<TerritoryDto> getAllTerritories(Long congregationId) {
-    return territoryRepository.findAllWithCongregationId(congregationId);
+  public ListResponseDto<TerritoryDto> getAllTerritories(Long congregationId, GetTerritoriesQueryParamsDto queryParams) {
+    Page<Territory> territoriesPage = territoryRepository.findAllByCongregationId(congregationId, PageRequest.of(queryParams.getPage() - 1, queryParams.getPageSize()));
+    return ListResponseDto.<TerritoryDto>builder()
+      .page(territoriesPage.getNumber() + 1)
+      .pageSize(territoriesPage.getSize())
+      .totalPages(territoriesPage.getTotalPages())
+      .totalElements(territoriesPage.getTotalElements())
+      .data(territoriesPage.getContent().stream().map(territoryMapper::entityToDto).toList())
+      .build();
   }
 
   @Override
