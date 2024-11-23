@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Preaching Report",
     "collectionId": "2ed902cd-c91e-4ec1-b2a1-df0435e0a0a4",
-    "dateExported": "2024-11-21T22:25:18.860Z",
+    "dateExported": "2024-11-23T02:59:51.472Z",
     "version": "1.2",
     "folders": [
         {
@@ -186,11 +186,11 @@
             "method": "POST",
             "sortNum": 120000,
             "created": "2024-11-21T20:11:50.166Z",
-            "modified": "2024-11-21T22:01:44.074Z",
+            "modified": "2024-11-22T21:49:05.816Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"date\": \"10-10-2024\",\n  \"scheduleId\": 1,\n  \"preachingDriverId\": 1,\n  \"observations\": null,\n  \"items\": [\n    {\n      \"territoryId\": 1,\n      \"observations\": null,\n      \"completed\": true,\n      \"blocks\": []\n    }\n  ]\n}",
+                "raw": "{\n  \"date\": \"10-10-2024\",\n  \"scheduleId\": 1,\n  \"preachingDriverId\": 1,\n  \"observations\": null,\n  \"items\": [\n    {\n      \"territoryId\": 1,\n      \"observations\": null,\n      \"completed\": true\n    }\n  ]\n}",
                 "form": []
             }
         },
@@ -224,5 +224,5 @@
             }
         }
     ],
-    "ref": "i1KVhOUQjpt8h6L_J2xN-KYW0hU8zqwH2aQQn6OEI--LM27nHELqd9V7ip3nHWGEozfomi6iAuIu48_KxLaWig"
+    "ref": "i1KVhOUQjpt8h6L_J2xN-Hok5H_boMh9t_-1c4W6wCIouZM0Y9Bz_dNr90IHfIRbnZLGc63HIMa1QcP8mlJOnQ"
 }
