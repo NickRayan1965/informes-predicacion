@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Set;
 
 import com.informes_predicacion.org.dtos.req.CreateBlockDto;
+import com.informes_predicacion.org.dtos.req.GetBlocksQueryParamsDto;
 import com.informes_predicacion.org.dtos.res.BlockDto;
+import com.informes_predicacion.org.dtos.res.ListResponseDto;
 import com.informes_predicacion.org.entities.Block;
 
 public interface IBlockService {
-  Set<BlockDto> findAllByCongregation(Long congregationId);
+  ListResponseDto<BlockDto> findAllByCongregation(Long congregationId, GetBlocksQueryParamsDto queryParams);
   BlockDto findById(Long id, Long congregationId);
   BlockDto createBlock(CreateBlockDto createBlockDto, Long congregationId);
   BlockDto updateBlock(Long id, CreateBlockDto createBlockDto, Long congregationId);

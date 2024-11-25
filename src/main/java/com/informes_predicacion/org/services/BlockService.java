@@ -4,10 +4,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.informes_predicacion.org.dtos.req.CreateBlockDto;
+import com.informes_predicacion.org.dtos.req.GetBlocksQueryParamsDto;
 import com.informes_predicacion.org.dtos.res.BlockDto;
+import com.informes_predicacion.org.dtos.res.ListResponseDto;
 import com.informes_predicacion.org.dtos.res.TerritoryDto;
 import com.informes_predicacion.org.entities.Block;
 import com.informes_predicacion.org.entities.Territory;
@@ -25,8 +29,15 @@ public class BlockService implements IBlockService {
   private final ITerritoryService territoryService;
 
   @Override
-  public Set<BlockDto> findAllByCongregation(Long congregationId) {
-    return blockRepository.findAllByCongregationId(congregationId);
+  public ListResponseDto<BlockDto> findAllByCongregation(Long congregationId, GetBlocksQueryParamsDto queryParams) {
+    Page<Block> blocksResult = blockRepository.findAllByCongregationId(congregationId, queryParams.getTerritoryId(), PageRequest.of(queryParams.getPage() - 1, queryParams.getPageSize())); 
+    return ListResponseDto.<BlockDto>builder()
+      .data(blocksResult.getContent().stream().map(blockMapper::entityToDto).toList())
+      .page(blocksResult.getNumber() + 1)
+      .pageSize(blocksResult.getSize())
+      .totalPages(blocksResult.getTotalPages())
+      .totalElements(blocksResult.getTotalElements())
+      .build();
   }
 
   @Override

@@ -30,7 +30,7 @@ public interface ITerritoryRepository extends JpaRepository<Territory, Long> {
   @Query("SELECT t FROM Territory t WHERE t.id IN :ids AND t.congregation.id = :congregationId")
   List<Territory> findByManyIdsAndCongregationId(Set<Long> ids, Long congregationId);
 
-  @Query("SELECT t FROM Territory t WHERE t.congregation.id = ?1")
+  @Query("SELECT t FROM Territory t WHERE t.congregation.id = ?1 order by t.id desc")
   Page<Territory> findAllByCongregationId(Long congregationId, Pageable pageable); 
   
 }

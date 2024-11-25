@@ -11,9 +11,6 @@ import com.informes_predicacion.org.services.ITerritoryService;
 
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
-import java.util.Set;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
