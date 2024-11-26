@@ -2,6 +2,7 @@ package com.informes_predicacion.org.controllers;
 
 import java.util.Set;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/schedules")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class ScheduleController {
   private final IScheduleService scheduleService;
   @GetMapping
