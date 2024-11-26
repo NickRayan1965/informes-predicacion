@@ -1,11 +1,15 @@
 package com.informes_predicacion.org.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.informes_predicacion.org.dtos.req.CreateScheduleDto;
+import com.informes_predicacion.org.dtos.req.GetSchedulesQueryParamsDto;
+import com.informes_predicacion.org.dtos.res.ListResponseDto;
 import com.informes_predicacion.org.dtos.res.ScheduleDto;
 import com.informes_predicacion.org.entities.Congregation;
 import com.informes_predicacion.org.entities.Schedule;
@@ -22,8 +26,9 @@ public class ScheduleService implements IScheduleService{
   private final ICongregationService congregationService;
   
   @Override
-  public Set<ScheduleDto> findAllByCongregationId(Long congregationId) {
-    return scheduleRepository.findAllByCongregationId(congregationId);
+  public ListResponseDto<ScheduleDto> findAllByCongregationId(Long congregationId, GetSchedulesQueryParamsDto queryParams) {
+    Page<Schedule> pageSchedules = scheduleRepository.findAllByCongregationId(congregationId, queryParams.toPageable());
+    return ListResponseDto.from(pageSchedules, scheduleMapper);
   }
 
   @Override
