@@ -9,7 +9,7 @@ import com.informes_predicacion.org.dtos.res.UserDto;
 import com.informes_predicacion.org.entities.User;
 
 @Mapper(componentModel = "spring")
-public interface IUserMapper {
+public interface IUserMapper extends IToDtoMapper<User, UserDto> {
   
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "enabled", constant = "true")
@@ -33,7 +33,7 @@ public interface IUserMapper {
   void mergeToDto(User entity, @MappingTarget UserDto dto);
 
 
-  default UserDto entityToDto(User entity) {
+  default UserDto toDto(User entity) {
     UserDto dto = new UserDto();
     mergeToDto(entity, dto);
     return dto;

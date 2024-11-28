@@ -1,11 +1,13 @@
 package com.informes_predicacion.org.services;
 
-import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.informes_predicacion.org.dtos.CreateUserDto;
+import com.informes_predicacion.org.dtos.req.GetUsersQueryParamsDto;
+import com.informes_predicacion.org.dtos.res.ListResponseDto;
 import com.informes_predicacion.org.dtos.res.UserDto;
 import com.informes_predicacion.org.entities.Congregation;
 import com.informes_predicacion.org.entities.User;
@@ -28,15 +30,16 @@ public class UserService implements IUserService {
     user.setCongregation(congregation);
     try {
       user = userRepository.save(user);
-      return userMapper.entityToDto(user);
+      return userMapper.toDto(user);
     } catch (Exception e) {
       return null;
     }
   }
 
   @Override
-  public List<UserDto> getAllUsers(Long congregationId) {
-    return userRepository.findAll().stream().map(userMapper::entityToDto).toList();
+  public ListResponseDto<UserDto> getAllUsers(Long congregationId, GetUsersQueryParamsDto queryParams) {
+    Page<User> pageUsers = userRepository.findAllByCongregationId(congregationId,queryParams);
+    return ListResponseDto.from(pageUsers, userMapper); 
   }
 
   @Override
@@ -45,7 +48,7 @@ public class UserService implements IUserService {
     if (!user.isPresent()) {
       throw new RuntimeException("User not found");
     }
-    return userMapper.entityToDto(user.get());
+    return userMapper.toDto(user.get());
   }
 
   @Override
@@ -67,7 +70,7 @@ public class UserService implements IUserService {
     if (!user.isPresent()) {
       throw new RuntimeException("User with id " + id + " not found");
     }
-    return userMapper.entityToDto(user.get());
+    return userMapper.toDto(user.get());
   }
   
 }
