@@ -5,9 +5,12 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.informes_predicacion.org.dtos.req.CreateReportDto;
+import com.informes_predicacion.org.dtos.req.GetSchedulesQueryParamsDto;
+import com.informes_predicacion.org.dtos.res.ListResponseDto;
 import com.informes_predicacion.org.dtos.res.ReportDto;
 import com.informes_predicacion.org.dtos.res.ScheduleDto;
 import com.informes_predicacion.org.dtos.res.UserDto;
@@ -33,8 +36,9 @@ public class ReportService implements IReportService {
   private final IScheduleMapper scheduleMapper;
   private final IUserMapper userMapper; 
   @Override
-  public Set<ReportDto> findAllByCongregationId(Long congregationId) {
-    return reportRepository.findAllByCongregationId(congregationId).stream().map(reportMapper::toDto).collect(Collectors.toSet());
+  public ListResponseDto<ReportDto> findAllByCongregationId(Long congregationId, GetSchedulesQueryParamsDto queryParams) {
+    Page<Report> reportsResult = reportRepository.findAllByCongregationId(congregationId, queryParams.toPageable());
+    return ListResponseDto.from(reportsResult, reportMapper); 
   }
 
   @Override

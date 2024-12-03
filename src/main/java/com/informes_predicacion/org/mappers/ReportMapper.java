@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ReportMapper {
+public class ReportMapper implements IToDtoMapper<Report, ReportDto> {
   private final IReportBasicMapper reportBasicMapper;
   private final IReportTerritoryItemBasicMapper reportTerritoryItemBasicMapper;
   private final IReportTerritoryBlockItemBasicMapper reportTerritoryBlockItemBasicMapper;
@@ -36,6 +36,8 @@ public class ReportMapper {
     }
     return entity;
   }
+  
+  @Override
   public ReportDto toDto(Report entity) {
     ReportDto dto = reportBasicMapper.toDto(entity);
     dto.setItems(entity.getItems().stream().map(item -> {

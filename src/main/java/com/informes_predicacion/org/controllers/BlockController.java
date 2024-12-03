@@ -25,9 +25,7 @@ public class BlockController {
   private final IBlockService blockService;
 
   @GetMapping
-  public ListResponseDto<BlockDto> findAllByCongregation(
-    @ModelAttribute GetBlocksQueryParamsDto queryParams
-  ) {
+  public ListResponseDto<BlockDto> findAllByCongregation(@ModelAttribute GetBlocksQueryParamsDto queryParams) {
     return blockService.findAllByCongregation(1L, queryParams);
   }
 
@@ -35,9 +33,9 @@ public class BlockController {
   public BlockDto findById(@PathVariable Long id) {
     return blockService.findById(id, 1L);
   }
-  
+
   @PostMapping
   public BlockDto createBlock(@RequestBody CreateBlockDto createBlockDto) {
     return blockService.createBlock(createBlockDto, 1L);
-  } 
+  }
 }
