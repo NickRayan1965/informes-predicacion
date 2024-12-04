@@ -1,6 +1,8 @@
 package com.informes_predicacion.org.services;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -8,6 +10,8 @@ import java.util.stream.Collectors;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import com.informes_predicacion.org.classes.ReportOfPredicationReports;
+import com.informes_predicacion.org.classes.TerritoryDetailProgress;
 import com.informes_predicacion.org.dtos.req.CreateReportDto;
 import com.informes_predicacion.org.dtos.req.GetSchedulesQueryParamsDto;
 import com.informes_predicacion.org.dtos.res.ListResponseDto;
@@ -35,6 +39,7 @@ public class ReportService implements IReportService {
   private final IBlockService blockService;
   private final IScheduleMapper scheduleMapper;
   private final IUserMapper userMapper; 
+  
   @Override
   public ListResponseDto<ReportDto> findAllByCongregationId(Long congregationId, GetSchedulesQueryParamsDto queryParams) {
     Page<Report> reportsResult = reportRepository.findAllByCongregationId(congregationId, queryParams.toPageable());
@@ -101,5 +106,57 @@ public class ReportService implements IReportService {
     }
     return entity;
   }
+
+  @Override
+  public ReportOfPredicationReports getReportOfPredicationReports(String startDate, String endDate,
+      Long congregationId) {
+    List<Report> reports = new ArrayList<>();
+    ReportOfPredicationReports reportOfPredicationReports = new ReportOfPredicationReports();
+    reportOfPredicationReports.setStartDate(startDate);
+    reportOfPredicationReports.setEndDate(endDate);
+    
+    startTerritoryRecords(reportOfPredicationReports, reports);
+    List<Territory> territories = new ArrayList<>();
+    territories.forEach(territory -> {
+      List<Report> reportsByTerritory = getReportsByTerritoryId(reports, territory.getId());
+      orderReportsByDateAsc(reportsByTerritory);
+      TerritoryDetailProgress territoryDetailProgress = new TerritoryDetailProgress();
+      reportsByTerritory.forEach(report -> {
+        if (territoryDetailProgress.getInitialDate() == null) {
+          territoryDetailProgress.setInitialDate(report.getDate());
+        }
+        if (territoryDetailProgress.getPreachingDriverOpenderCompleteName() == null) {
+          territoryDetailProgress.setPreachingDriverOpenderCompleteName(report.getPreachingDriver().getNames() + " " + report.getPreachingDriver().getLastNames());
+        }
+
+      });
+
+    });
+    // reports.forEach(report -> {
+    //   String date = report.getDate();
+    //   String preachingDriverCompleteNames = report.getPreachingDriver().getNames() + " " + report.getPreachingDriver().getLastNames();
+    //   report.getItems().forEach(reportTerritoryItem -> {
+    //     String territoryName = reportTerritoryItem.getTerritory().getName();
+    //   });
+    // });
+    return null;
+  }
+  private void startTerritoryRecords(ReportOfPredicationReports reportOfPredicationReports, List<Report> reports) {
+    reports.forEach(report -> {
+      report.getItems().forEach(reportTerritoryItem -> {
+        String territoryName = reportTerritoryItem.getTerritory().getName();
+        if(reportOfPredicationReports.getDetails().get(territoryName) == null) {
+          reportOfPredicationReports.getDetails().put(territoryName, new ArrayList<TerritoryDetailProgress>());
+        }
+      });
+    });
+  }
+  private List<Report> getReportsByTerritoryId(List<Report> reports, Long territoryId) {
+    return reports.stream().filter(report -> report.getItems().stream().anyMatch(item -> item.getTerritory().getId().equals(territoryId))).collect(Collectors.toList());
+  }
+  private void orderReportsByDateAsc(List<Report> reports) {
+    reports.sort((r1, r2) -> r1.getDate().compareTo(r2.getDate()));
+  }
+  
   
 }
