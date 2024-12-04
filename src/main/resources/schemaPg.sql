@@ -27,10 +27,11 @@ CREATE TABLE IF NOT EXISTS schedules (
     id BIGSERIAL PRIMARY KEY,
     congregation_id BIGINT NOT NULL,
     name VARCHAR(50) NOT NULL,
-    time VARCHAR(50) NOT NULL,
+    start_hour VARCHAR(5) NOT NULL,
+    end_hour VARCHAR(5) NOT NULL,
     enabled BOOLEAN NOT NULL DEFAULT TRUE,
     UNIQUE (congregation_id, name),
-    UNIQUE (congregation_id, time),
+    UNIQUE (congregation_id, start_hour, end_hour),
     FOREIGN KEY (congregation_id) REFERENCES congregations(id)
 );
 CREATE TABLE IF NOT EXISTS users (

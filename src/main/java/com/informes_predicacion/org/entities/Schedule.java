@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 @Table(name = "schedules",uniqueConstraints = {
    @UniqueConstraint(columnNames = {"name", "congregation_id"}),
-   @UniqueConstraint(columnNames = {"time", "congregation_id"})
+   @UniqueConstraint(columnNames = {"start_hour", "end_hour", "congregation_id"})
 })
 @Entity
 @Data
@@ -32,8 +32,12 @@ public class Schedule {
 
   //6pm - 8pm example 
 
-  @Column(nullable = false, length = 50)
-  private String time;
+  @Column(nullable = false, length = 5, name = "start_hour")
+  private String startHour;
+
+  @Column(nullable = false, length = 5, name = "end_hour")
+  private String endHour;
+  
 
   
   @ManyToOne(optional = false, targetEntity = Congregation.class, fetch = FetchType.EAGER)

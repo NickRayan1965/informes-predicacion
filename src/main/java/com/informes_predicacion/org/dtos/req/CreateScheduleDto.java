@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateScheduleDto {
   private String name;
-  private String time;
+  private String startHour;
+  private String endHour;
 }

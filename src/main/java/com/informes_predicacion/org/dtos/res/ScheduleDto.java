@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 public class ScheduleDto {
   private Long id;
   private String name;
-  private String time;
+  private String startHour;
+  private String endHour;
   private Boolean enabled;
   private Long congregationId;
   private String congregationName;

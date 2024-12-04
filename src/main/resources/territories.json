@@ -1,0 +1,194 @@
+[
+  {
+    "name": "1",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "2",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "3",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "4",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "5",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "6",
+    "description": "Barboza",
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "7",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "8",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "9",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "10",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "11",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "12",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "13",
+    "description": "Linea del tren",
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "14",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "15",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "16",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "17",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "18",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "19",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "20",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "21",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "22",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "23",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  },
+  {
+    "name": "24",
+    "description": null,
+    "congregation": {
+      "id": 1
+    },
+    "enabled": true
+  }
+]

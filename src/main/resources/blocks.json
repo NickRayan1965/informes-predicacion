@@ -1,0 +1,27 @@
+[
+  {
+    "name": "R",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "1"
+    }
+  },
+  {
+    "name": "A",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "1"
+    }
+  },
+  {
+    "name": "A Jr.Chota",
+    "description": "Jr. Chota",
+    "enabled": true,
+    "territory": {
+      "name": "1"
+    }
+  }
+  
+]
