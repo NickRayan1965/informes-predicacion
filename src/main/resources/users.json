@@ -1,0 +1,138 @@
+
+[
+  {
+    "names": "Nick Rayan",
+    "lastNames": "Cerron Obregon",
+    "username": "nick",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Leonel Noe",
+    "lastNames": "Cerron Obregon",
+    "username": "leo",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Javier Mathias",
+    "lastNames": "Martinez Santibañez",
+    "username": "javier",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Lucas Fabiano",
+    "lastNames": "Martinez Santibañez",
+    "username": "lucas",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Jonnathan",
+    "lastNames": "Nuñez Delgado",
+    "username": "jonnathan",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Jorge",
+    "lastNames": "Nuñez Mantilla",
+    "username": "jorge",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Carlos",
+    "lastNames": "Bancayan",
+    "username": "carlos",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Yair Andree",
+    "lastNames": "Broncano",
+    "username": "yair",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Felix",
+    "lastNames": "Cerron Gamboa",
+    "username": "felix",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Ian Paul",
+    "lastNames": "Nuñez Delgado",
+    "username": "ian",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Gaspar",
+    "lastNames": "Veloz Perez",
+    "username": "gaspar",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Roger",
+    "lastNames": "Martinez",
+    "username": "roger",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Clemente",
+    "lastNames": "Becerra",
+    "username": "clemente",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Daniel",
+    "lastNames": "Malqui",
+    "username": "daniel",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Antonio",
+    "lastNames": "Beteta",
+    "username": "antonio",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  }
+]

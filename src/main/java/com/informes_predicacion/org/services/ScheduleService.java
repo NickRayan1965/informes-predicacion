@@ -12,7 +12,7 @@ import com.informes_predicacion.org.dtos.res.ScheduleDto;
 import com.informes_predicacion.org.entities.Congregation;
 import com.informes_predicacion.org.entities.Schedule;
 import com.informes_predicacion.org.mappers.IScheduleMapper;
-import com.informes_predicacion.org.repositories.ISheduleRepository;
+import com.informes_predicacion.org.repositories.IScheduleRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ScheduleService implements IScheduleService{
   private final IScheduleMapper scheduleMapper;
-  private final ISheduleRepository scheduleRepository;
+  private final IScheduleRepository scheduleRepository;
   private final ICongregationService congregationService;
   
   @Override

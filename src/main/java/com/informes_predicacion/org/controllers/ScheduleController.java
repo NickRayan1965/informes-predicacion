@@ -26,12 +26,7 @@ public class ScheduleController {
   @GetMapping
   public ListResponseDto<ScheduleDto> findAllByCongregationId(
   @ModelAttribute GetSchedulesQueryParamsDto queryParams) {
-    try {
-      Thread.sleep(1000);
-      return scheduleService.findAllByCongregationId(1L, queryParams);
-    } catch (Exception e) {
-      return null;
-    }
+    return scheduleService.findAllByCongregationId(1L, queryParams);
   }
 
   @GetMapping("/{id}")

@@ -8,11 +8,410 @@
     }
   },
   {
-    "name": "A",
+    "name": "D",
     "description": null,
     "enabled": true,
     "territory": {
       "name": "1"
+    }
+  },
+
+
+  {
+    "name": "F1",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "2"
+    }
+  },
+  {
+    "name": "G",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "2"
+    }
+  },
+
+
+  {
+    "name": "E",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "3"
+    }
+  },
+  {
+    "name": "F",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "3"
+    }
+  },
+
+
+  {
+    "name": "K",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "4"
+    }
+  },
+  
+
+  {
+    "name": "M",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "5"
+    }
+  },
+  {
+    "name": "L",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "5"
+    }
+  },
+
+
+  {
+    "name": "Barboza",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "6"
+    }
+  },
+
+
+  {
+    "name": "N",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "7"
+    }
+  },
+
+
+  {
+    "name": "J",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "8"
+    }
+  },
+  {
+    "name": "H",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "8"
+    }
+  },
+
+
+  {
+    "name": "G",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "9"
+    }
+  },
+
+  {
+    "name": "I",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "9"
+    }
+  },
+
+
+  {
+    "name": "J1",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "10"
+    }
+  },
+  {
+    "name": "K",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "10"
+    }
+  },
+
+
+  {
+    "name": "Q",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "11"
+    }
+  },
+  {
+    "name": "P",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "11"
+    }
+  },
+
+
+  {
+    "name": "L",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "12"
+    }
+  },
+  {
+    "name": "M",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "12"
+    }
+  },
+  {
+    "name": "N",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "12"
+    }
+  },
+
+
+  {
+    "name": "Linea del tren",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "13"
+    }
+  },
+
+
+  {
+    "name": "J",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "14"
+    }
+  },
+  {
+    "name": "M",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "14"
+    }
+  },
+
+
+  {
+    "name": "K",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "15"
+    }
+  },
+  {
+    "name": "A",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "15"
+    }
+  },
+
+
+  {
+    "name": "B",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "16"
+    }
+  },
+  {
+    "name": "G",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "16"
+    }
+  },
+
+
+  {
+    "name": "N1",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "17"
+    }
+  },
+
+
+  {
+    "name": "H",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "18"
+    }
+  },
+  {
+    "name": "I",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "18"
+    }
+  },
+
+
+  {
+    "name": "K",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "19"
+    }
+  },
+  {
+    "name": "J",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "19"
+    }
+  },
+  
+
+  {
+    "name": "I",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "20"
+    }
+  },
+  {
+    "name": "H",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "20"
+    }
+  },
+
+
+  {
+    "name": "G",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "21"
+    }
+  },
+  {
+    "name": "F",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "21"
+    }
+  },
+
+
+  {
+    "name": "A",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "22"
+    }
+  },
+  {
+    "name": "B",
+    "description": "En el mapa aparece como R pero esta mal",
+    "enabled": true,
+    "territory": {
+      "name": "22"
+    }
+  },
+
+
+  {
+    "name": "C",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "23"
+    }
+  },
+  {
+    "name": "D",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "23"
+    }
+  },
+  {
+    "name": "E",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "23"
+    }
+  },
+
+
+  {
+    "name": "C",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "24"
+    }
+  },
+  {
+    "name": "B",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "24"
+    }
+  },
+  {
+    "name": "A",
+    "description": null,
+    "enabled": true,
+    "territory": {
+      "name": "24"
     }
   },
   {
@@ -20,7 +419,7 @@
     "description": "Jr. Chota",
     "enabled": true,
     "territory": {
-      "name": "1"
+      "name": "24"
     }
   }
   
