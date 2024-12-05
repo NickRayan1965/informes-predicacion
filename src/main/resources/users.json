@@ -134,5 +134,23 @@
     "enabled": true,
     "congregation": {
     }
+  },
+  {
+    "names": "Pascual",
+    "lastNames": "Huaman",
+    "username": "pascual",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
+  },
+  {
+    "names": "Josue Alexander",
+    "lastNames": "Bancayan",
+    "username": "alexander",
+    "password": "1234",
+    "enabled": true,
+    "congregation": {
+    }
   }
 ]

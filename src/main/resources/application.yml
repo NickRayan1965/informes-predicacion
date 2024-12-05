@@ -5,9 +5,9 @@ spring:
   application:
     name: informe-predicacion
   datasource:
-    url: jdbc:postgresql://localhost:5432/informe-predicacion
+    url: jdbc:postgresql://egIDyvthLbtBIG4ftB1HeI3jc01dWMPs@dpg-ct8i3p68ii6s73caqrp0-a.ohio-postgres.render.com/informes_predicacion
     username: nick
-    password: 1234
+    password: egIDyvthLbtBIG4ftB1HeI3jc01dWMPs
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
