@@ -18,4 +18,5 @@ public class ReportTerritoryItemDto {
   private String observations;
   private List<ReportTerritoryBlockItemDto> blocks;
   private Boolean completed;
+  private Boolean flagCompletedByDriver;
 }

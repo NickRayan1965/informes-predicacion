@@ -15,4 +15,6 @@ public class CreateReportTerritoryItemDto {
   private String observations;
   private Boolean completed;
   private List<CreateReportTerritoryBlockItemDto> blocks = new ArrayList<>();
+  private Boolean flagCompletedByDriver;
+  private Boolean flagWasTheTerritoryOpened; 
 }

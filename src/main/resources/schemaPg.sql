@@ -59,13 +59,15 @@ CREATE TABLE IF NOT EXISTS report_territory_items (
     report_id BIGINT NOT NULL,
     territory_id BIGINT NOT NULL,
     observations VARCHAR(250),
+    flag_completed_by_driver BOOLEAN NOT NULL DEFAULT FALSE,
+    flag_was_the_territory_opened BOOLEAN NOT NULL DEFAULT FALSE,
     completed BOOLEAN,
     FOREIGN KEY (report_id) REFERENCES reports(id),
     FOREIGN KEY (territory_id) REFERENCES territories(id)
 );
+
 CREATE TABLE IF NOT EXISTS report_territory_block_items(
-    id BIGSERIAL PRIMARY KEY,
-    block_id BIGINT NOT NULL,
+    block_id BIGINT NOT NULL, 
     report_territory_item_id BIGINT NOT NULL,
     observations VARCHAR(250),
     completed BOOLEAN,

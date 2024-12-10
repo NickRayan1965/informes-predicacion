@@ -53,6 +53,12 @@ public class ReportTerritoryItem {
   @Column(nullable = false)
   private Boolean completed;
 
+  @Column(nullable = false, name = "flag_completed_by_driver")
+  private Boolean flagCompletedByDriver;
+
+  @Column(nullable = false, name = "flag_was_the_territory_opened")
+  private Boolean flagWasTheTerritoryOpened;
+
   public void addBlock(ReportTerritoryBlockItem block) {
     this.blocks.add(block);
     block.setReportTerritoryItem(this);
